@@ -23,12 +23,11 @@ public class Rental {
 	}
 	
 
-	public Rental(long id, User user, Movie movie, LocalDateTime checkoutDateTime, LocalDateTime checkinDateTime,
-			double price) {
+	public Rental(long id, User user, Movie movie, LocalDateTime checkinDateTime, double price) {
 		this.id = id;
 		this.user = user;
 		this.movie = movie;
-		this.checkoutDateTime = checkoutDateTime;
+		this.checkoutDateTime = LocalDateTime.now();
 		this.checkinDateTime = checkinDateTime;
 		this.price = price;
 	}
