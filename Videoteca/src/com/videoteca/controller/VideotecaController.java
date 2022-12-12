@@ -1,6 +1,10 @@
 package com.videoteca.controller;
 
+import java.util.List;
+
+import com.videoteca.dao.movies.MovieDAO;
 import com.videoteca.dao.users.UserDAO;
+import com.videoteca.model.Rental;
 import com.videoteca.model.User;
 
 public class VideotecaController {
@@ -8,11 +12,17 @@ public class VideotecaController {
 	
 	private UserDAO userDAO = null;
 	
+	private MovieDAO movieDAO = null;
+	
+	private RentalController rentalController = null;
+	
 	
 	
 	public VideotecaController() 
 	{
 		this.userDAO = new UserDAO();
+		this.movieDAO = new MovieDAO();
+		this.rentalController = new RentalController();
 	}
 	
 	
@@ -45,6 +55,30 @@ public class VideotecaController {
 		} catch (Exception e) {
 			return false;
 		}
-	}	
+	}
+	
+	
+	public void showListOfMovies()
+	{
+		this.movieDAO
+			.getMovies()
+			.stream()
+			.forEach(movie -> System.out.println(movie));
+	}
+	
+	
+	public void showSuggestedMovies()
+	{
+		List<Rental> last5MinutesRentedItens = rentalController.getLast5MinutesRentedItens();
+		
+		last5MinutesRentedItens.forEach(rentedItem -> System.out.println(rentedItem.getMovie().toString()));
+	}
+	
+	public void rentMovie()
+	{
+		Rental newRentedMovie = new Rental();
+		rentalController.newRental(newRentedMovie);
+	}
+	
 	
 }

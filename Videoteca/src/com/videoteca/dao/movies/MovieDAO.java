@@ -69,5 +69,14 @@ public class MovieDAO implements DAOBase<Movie> {
 		return null;
 	}
 
+	/**
+	 * Returns a list with all the movies in the CSV file.
+	 * 
+	 * The list was previously loaded in the constructor.
+	 */
+	public List<Movie> getMovies()
+	{
+		return movies;
+	}
 
 }

@@ -9,11 +9,14 @@ public class Stream {
 	private String title;
 	
 	private LocalDateTime createdAt;
+	
+	private double price;
 
 	
-	public Stream(long id, String title) {
+	public Stream(long id, String title, double price) {
 		this.id = id;
 		this.title = title;
+		this.price = price;
 		this.createdAt = LocalDateTime.now();
 	}
 	
@@ -36,5 +39,13 @@ public class Stream {
 
 	public LocalDateTime getCreatedAt() {
 		return createdAt;
+	}
+	
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public double getPrice() {
+		return price;
 	}
 }

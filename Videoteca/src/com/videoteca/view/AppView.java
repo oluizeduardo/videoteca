@@ -11,6 +11,9 @@ public class AppView {
 		
 		final int LOGIN = 1;
 		final int NEW_ACCOUNT = 2;
+		final int LIST_OF_MOVIES = 1;
+		final int SUGGESTED_MOVIES = 2;
+		final int RENT_A_MOVIE = 3;
 		
 		int userChoice = 0;
 		
@@ -47,6 +50,20 @@ public class AppView {
 			System.out.println("1 - LIST OF MOVIES");
 			System.out.println("2 - SUGGESTED MOVIES");
 			System.out.println("3 - RENT A MOVIE");
+			
+			switch (userChoice) {
+				case LIST_OF_MOVIES: 
+					controller.showListOfMovies();
+				break;
+				
+				case SUGGESTED_MOVIES: 
+					controller.showSuggestedMovies();
+				break;
+				
+				case RENT_A_MOVIE: 
+					controller.rentMovie();
+				break;
+			}
 			
 		}else {
 			System.out.println("User not found!");

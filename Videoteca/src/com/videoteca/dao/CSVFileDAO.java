@@ -22,8 +22,9 @@ public class CSVFileDAO {
 		
 		// Read CSV file at filePath.
 		
-		// Return a list with the movies.
+		// Fill the list with the content of the file.
 		
+		// Return a list with the movies.		
 		return movies;
 	}
 	
